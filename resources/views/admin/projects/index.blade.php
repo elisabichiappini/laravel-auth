@@ -1,6 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
+
+    <h1>Progetti portfolio</h1>
+    <!--bottone per di creare un nuovo progetto-->
+    <div>
+        <a href="{{ route('admin.projects.create') }}" class="btn btn-warning my-3">Nuovo progetto</a>
+    </div>
+    <!--/bottone per di creare un nuovo progetto-->
     <!--tabella con popolamento dei dati del database-->
     <table class="table">
         <thead>
