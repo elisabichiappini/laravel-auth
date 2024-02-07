@@ -1,10 +1,31 @@
 @extends('layouts.admin')
 
 @section('content')
-    <ul>
-        @foreach ($projects as $project)
-        <li>{{ $project->title }}</li>
-        @endforeach
-    </ul>
-    
+    <!--tabella con popolamento dei dati del database-->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">TITLE</th>
+                <th scope="col">DATE</th>
+                <th scope="col"></th><!--bottoni-->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($projects as $project)
+            <tr>
+                <td >{{ $project->id }}</td>
+                <td>{{ $project->title }}</td>
+                <td>{{ $project->born }}</td>
+                <td>
+                    <a href="" class="btn btn-primary" role="button">edit</a>
+                    <a href="" class="btn btn-secondary" role="button">delete</a>
+                    <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-info" role="button">show</a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <!--tabella con popolamento dei dati del database-->
+
 @endsection
