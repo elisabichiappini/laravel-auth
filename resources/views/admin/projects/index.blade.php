@@ -4,6 +4,10 @@
 
     <h1>Progetti portfolio</h1>
     <!--bottone per di creare un nuovo progetto-->
+    <!---->
+    @if (session('message'))
+    {{ session('message') }}
+    @endif
     <div>
         <a href="{{ route('admin.projects.create') }}" class="btn btn-warning my-3">Nuovo progetto</a>
     </div>

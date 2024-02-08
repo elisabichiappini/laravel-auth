@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -32,7 +33,19 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $data = $request->validated();
+        //istanzio la classe quando supero la validaizione e lo salvo
+        $project = new Project();
+        $project->title = $data['title'];
+        $project->tools = $data['tools'];
+        $project->slug = Str::of($project->title)->slug('-');
+        $project->description = $data['description'];
+        // $project->born = $data['born'];
+        // $project->type = $data['type'];
+        $project->save();
+
+        //redirect
+        return redirect()->route('admin.projects.index')->with('message', 'Progetto creato correttamente');
     }
 
     /**
