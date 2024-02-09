@@ -29,7 +29,7 @@
                 <td>{{ $project->title }}</td>
                 <td>{{ $project->born }}</td>
                 <td>
-                    <a href="" class="btn btn-primary" role="button">edit</a>
+                    <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary" role="button">edit</a>
                     <a href="" class="btn btn-secondary" role="button">delete</a>
                     <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-info" role="button">show</a>
                 </td>
