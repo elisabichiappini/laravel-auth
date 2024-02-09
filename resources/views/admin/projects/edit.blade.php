@@ -2,39 +2,34 @@
 
 @section('content')
     <h2>Modifica il progetto</h2>
-    <!--mostra errori di validazione-->
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-            </ul>
-        </div>
-    @endif
-    <!--/mostra errori di validazione-->
+    <!--mostra errori di validazione in variabile di sessione-->
+    @include('partials.errors')
+    <!--/mostra errori di validazione in variabile di sessione-->
     <!--form-->
-    <form action="{{ route('admin.projects.store')}}" method="POST">
+    <form action="{{ route('admin.projects.update', $project)}}" method="POST">
         <!--token per validazione form-->
         @csrf
         <!--/token per validazione form-->
+        @method('PUT')
+        <!--corpo form-->
         <div class="mb-3">
             <label for="title" class="form-label">Titolo</label>
-            <input type="text" class="form-control" id="title" name="title" required value="{{ $project->title }}">
+            <input type="text" class="form-control" id="title" name="title" required value="{{ old('title', $project->title) }}">
         </div>
         <div class="mb-3">
             <label for="born" class="form-label">Creato il</label>
-            <input type="text" class="form-control" id="born" name="born" value="{{ $project->born }}">
+            <input type="text" class="form-control" id="born" name="born" value="{{ old('born', $project->born) }}">
         </div>
         <div class="mb-3">
             <label for="tools" class="form-label">Strumenti</label>
-            <input type="text" class="form-control" id="tools" name="tools" value="{{ $project->tools }}">
+            <input type="text" class="form-control" id="tools" name="tools" value="{{ old('tools', $project->tools) }}">
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Descrizione</label>
-            <textarea class="form-control" id="description" rows="5" name="description">{{ $project->description }}"</textarea>
+            <textarea class="form-control" id="description" rows="5" name="description">{{ old('description', $project->description) }}"</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Crea</button>
-      </form>
+        <button type="submit" class="btn btn-primary">Modifica</button>
+    </form>
+    <!--corpo form-->
     <!--form-->
 @endsection

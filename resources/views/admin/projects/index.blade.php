@@ -16,10 +16,13 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">TITLE</th>
-                <th scope="col">DATE</th>
-                <th scope="col"></th><!--bottoni-->
+                <th scope="col">Id</th>
+                <th scope="col">Nome progetto</th>
+                <th scope="col">Data creazione</th>
+                <th scope="col">Strumenti</th>
+                <!--bottoni-->
+                <th scope="col"></th>
+                <!--/bottoni-->
             </tr>
         </thead>
         <tbody>
@@ -28,10 +31,11 @@
                 <td >{{ $project->id }}</td>
                 <td>{{ $project->title }}</td>
                 <td>{{ $project->born }}</td>
+                <td>{{ $project->tools }}</td>
                 <td>
-                    <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary" role="button">edit</a>
-                    <a href="" class="btn btn-secondary" role="button">delete</a>
-                    <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-info" role="button">show</a>
+                    <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary" role="button">Modifica</a>
+                    <a href="" class="btn btn-secondary" role="button">Elimina</a>
+                    <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-info" role="button">Dettaglio</a>
                 </td>
             </tr>
             @endforeach

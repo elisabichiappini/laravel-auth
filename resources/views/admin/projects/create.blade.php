@@ -3,15 +3,7 @@
 @section('content')
     <h2>Nuovo progetto</h2>
     <!--mostra errori di validazione-->
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-            </ul>
-        </div>
-    @endif
+    @include('partials.errors')
     <!--/mostra errori di validazione-->
     <!--form-->
     <form action="{{ route('admin.projects.store')}}" method="POST">

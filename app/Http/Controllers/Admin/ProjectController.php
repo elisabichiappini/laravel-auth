@@ -33,9 +33,11 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+        //i dati devono superare la validazione
         $data = $request->validated();
         //istanzio la classe quando supero la validaizione e lo salvo
         $project = new Project();
+        //massstore a mano
         $project->title = $data['title'];
         $project->tools = $data['tools'];
         $project->slug = Str::of($project->title)->slug('-');
@@ -44,8 +46,8 @@ class ProjectController extends Controller
         // $project->type = $data['type'];
         $project->save();
 
-        //redirect
-        return redirect()->route('admin.projects.index')->with('message', 'Progetto creato correttamente');
+        //redirect alla lista progetti 
+        return redirect()->route('admin.projects.index')->with('message', "Progetto $project->id creato correttamente");
     }
 
     /**
@@ -69,7 +71,14 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        //i dati inseriti devono superare la validazione
+        $data = $request->validated();
+        //campo fatto a mano
+        $project->slug= Str::of($data['title'])->slug('-');
+        //competenza di laravel di salvare i dati
+        $project->update();
+        //redirect alla lista 
+        return redirect()->route('admin.projects.index')->with('message', "Progetto $project->id aggiornato correttamente");
     }
 
     /**
