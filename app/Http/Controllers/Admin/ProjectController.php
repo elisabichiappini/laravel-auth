@@ -85,7 +85,12 @@ class ProjectController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Project $project)
-    {
-        //
+    {   
+        //salvo in variabile il valore id del progetto
+        $project_id = $project->id;
+        //cancello il post che passo con la dependency injection
+        $project->delete();
+        //redirect alla lista progetti index e mostra messaggio se l'azione è andata a buon fine
+        return redirect()->route('admin.projects.index')->with('message', "Progetto $project_id cancellato correttamente");
     }
 }

@@ -33,9 +33,17 @@
                 <td>{{ $project->born }}</td>
                 <td>{{ $project->tools }}</td>
                 <td>
-                    <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary" role="button">Modifica</a>
-                    <a href="" class="btn btn-secondary" role="button">Elimina</a>
                     <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-info" role="button">Dettaglio</a>
+                    <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary" role="button">Modifica</a>
+                    <form action="{{ route('admin.projects.destroy', $project) }}" method="POST" class="d-inline">
+                        <!--token-->
+                        @csrf
+                        <!--/token-->
+                        <!--method per cancellare-->
+                        @method('DELETE')
+                        <!--/method per cancellare-->
+                        <button class="btn btn-danger">Elimina</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
