@@ -74,9 +74,9 @@ class ProjectController extends Controller
         //i dati inseriti devono superare la validazione
         $data = $request->validated();
         //campo fatto a mano
-        $project->slug= Str::of($data['title'])->slug('-');
+        $project->slug = Str::of($data['title'])->slug('-');
         //competenza di laravel di salvare i dati
-        $project->update();
+        $project->update($data);
         //redirect alla lista 
         return redirect()->route('admin.projects.index')->with('message', "Progetto $project->id aggiornato correttamente");
     }
