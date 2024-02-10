@@ -16,13 +16,17 @@
     @include('partials.errors')
     <!--/mostra errori di validazione-->
     <!--form-->
-    <form action="{{ route('admin.projects.store')}}" method="POST">
+    <form action="{{ route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
         <!--token per validazione form-->
         @csrf
         <!--/token per validazione form-->
         <div class="mb-3">
             <label for="title" class="form-label">Titolo</label>
             <input type="text" class="form-control" id="title" name="title" required value="{{ old('title') }}">
+        </div>
+        <div class="mb-3">
+            <label for="image_project" class="form-label">Carica immagine</label>
+            <input class="form-control" type="file" id="image_project" name="project_img" value="{{ old('image_project') }}">
         </div>
         <div class="mb-3">
             <label for="born" class="form-label">Creato il</label>
