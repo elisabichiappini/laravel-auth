@@ -40,7 +40,7 @@
                 <td>{{ $project->title }}</td>
                 <td>{{ $project->born }}</td>
                 <td>{{ $project->tools }}</td>
-                <td>
+                <td class="text-end">
                     <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-info" role="button">Dettaglio</a>
                     <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary" role="button">Modifica</a>
                     <form action="{{ route('admin.projects.destroy', $project) }}" method="POST" class="d-inline">
