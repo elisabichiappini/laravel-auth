@@ -1,17 +1,25 @@
 @extends('layouts.admin')
 
-@section('content')
+@section('header_main')
+    <header class="d-flex justify-content-between align-items-center">
+        <h1>Progetti portfolio</h1>
+        <!--bottone per tornare alla lista progetti-->
+        <div class="ec-button">
+            <!--bottone per di creare un nuovo progetto-->
+            <a href="{{ route('admin.projects.create') }}" class="btn btn-warning my-3">Nuovo progetto</a>
+            <!--/bottone per di creare un nuovo progetto-->
+        </div>
+        <!--bottone per tornare alla lista progetti-->
+    </header>
+@endsection
 
-    <h1>Progetti portfolio</h1>
-    <!--bottone per di creare un nuovo progetto-->
-    <!---->
+@section('content')
+    
+    <!--?-->
     @if (session('message'))
     {{ session('message') }}
     @endif
-    <div>
-        <a href="{{ route('admin.projects.create') }}" class="btn btn-warning my-3">Nuovo progetto</a>
-    </div>
-    <!--/bottone per di creare un nuovo progetto-->
+    <!--?-->
     <!--tabella con popolamento dei dati del database-->
     <table class="table">
         <thead>

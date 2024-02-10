@@ -1,7 +1,17 @@
 @extends('layouts.admin')
+    
+@section('header_main')
+    <header class="d-flex justify-content-between align-items-center">
+        <h1>Nuovo progetto</h1>
+        <!--bottone per tornare alla lista progetti-->
+        <div class="ec-button">
+            <a href="{{ route('admin.projects.index') }}" class="btn btn-info">Torna ai progetti</a>
+        </div>
+        <!--bottone per tornare alla lista progetti-->
+    </header>
+@endsection
 
 @section('content')
-    <h2>Nuovo progetto</h2>
     <!--mostra errori di validazione-->
     @include('partials.errors')
     <!--/mostra errori di validazione-->
@@ -26,7 +36,7 @@
             <label for="description" class="form-label">Descrizione</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="description" value="{{ old('description') }}"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Crea</button>
+        <button type="submit" class="btn btn-warning">Crea</button>
       </form>
     <!--form-->
 @endsection

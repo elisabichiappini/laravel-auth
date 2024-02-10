@@ -1,7 +1,17 @@
 @extends('layouts.admin')
 
+@section('header_main')
+    <header class="d-flex justify-content-between align-items-center">
+        <h1>Modifica progetto</h1>
+        <!--bottone per tornare alla lista progetti-->
+        <div class="ec-button">
+            <a href="{{ route('admin.projects.index') }}" class="btn btn-info">Torna ai progetti</a>
+        </div>
+        <!--bottone per tornare alla lista progetti-->
+    </header>
+@endsection
+
 @section('content')
-    <h2>Modifica il progetto</h2>
     <!--mostra errori di validazione in variabile di sessione-->
     @include('partials.errors')
     <!--/mostra errori di validazione in variabile di sessione-->
