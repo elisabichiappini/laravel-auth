@@ -15,11 +15,12 @@
 
 @section('content')
     
-    <!--?-->
+    <!--mostra messaggio se si supera la validazione e l'azione viene eseguita-->
     @if (session('message'))
     {{ session('message') }}
     @endif
-    <!--?-->
+    <!--mostra messaggio se si supera la validazione e l'azione viene eseguita-->
+    
     <!--tabella con popolamento dei dati del database-->
     <table class="table">
         <thead>
