@@ -27,6 +27,7 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nome progetto</th>
+                <th scope="col">Immagine</th>
                 <th scope="col">Data creazione</th>
                 <th scope="col">Strumenti</th>
                 <!--bottoni-->
@@ -39,6 +40,11 @@
             <tr>
                 <td >{{ $project->id }}</td>
                 <td>{{ $project->title }}</td>
+                <td>
+                    @if ($project->project_img)
+                    <span class="badge text-bg-success">Allegato</span>
+                    @endif
+                </td>
                 <td>{{ $project->born }}</td>
                 <td>{{ $project->tools }}</td>
                 <td class="text-end">

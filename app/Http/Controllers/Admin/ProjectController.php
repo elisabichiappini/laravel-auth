@@ -88,6 +88,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {   
+        if($project->project_img) {
+            Storage::delete('project_img');
+        }
         //salvo in variabile il valore id del progetto
         $project_id = $project->id;
         //cancello il post che passo con la dependency injection

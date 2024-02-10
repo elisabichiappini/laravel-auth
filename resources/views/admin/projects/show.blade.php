@@ -18,6 +18,8 @@
     <h6>{{ $project->born }}</h6>
     <h3>{{ $project->tools }} </h3>
     <p>{{ $project->description}}</p>
-    <img src="{{ asset('storage/' . $project->project_img) }}" alt="{{ $project->title }}">
+    @if ($project->project_img)
+        <img src="{{ asset('storage/' . $project->project_img) }}" alt="{{ $project->title }}">
+    @endif
     <!--elementi in vista del singolo progetto-->
 @endsection

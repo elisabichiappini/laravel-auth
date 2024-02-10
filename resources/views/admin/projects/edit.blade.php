@@ -27,6 +27,10 @@
             <input type="text" class="form-control" id="title" name="title" required value="{{ old('title', $project->title) }}">
         </div>
         <div class="mb-3">
+            <label for="project_img" class="form-label">Carica immagine</label>
+            <input class="form-control" type="file" id="project_img" name="project_img" value="{{ old('project_img', $project->project_img) }}">
+        </div>
+        <div class="mb-3">
             <label for="born" class="form-label">Creato il</label>
             <input type="text" class="form-control" id="born" name="born" value="{{ old('born', $project->born) }}">
         </div>
